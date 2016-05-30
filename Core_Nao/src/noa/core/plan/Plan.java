@@ -11,17 +11,27 @@ public class Plan {
 	private int yNao;
 	private int xDest;
 	private int yDest;
-	
+	private Float echelle;
+	private int directionNao;
+
 	private ArrayList<Node> sortiesSecours;
 	private Map<Node> myMap;
-	
-	
-	public Plan(ArrayList<ArrayList<Integer>> plan, int xN, int yN, int xD, int yD, ArrayList<Node> sortieSecours, Map<Node> myMap) {
+
+
+	public Plan(ArrayList<ArrayList<Integer>> plan, int xN, int yN, int xD, int yD, ArrayList<Node> sortieSecours, Map<Node> myMap, Float echelle2) {
 		this.planMatrice = plan;
 		this.xNao = xN;
 		this.yNao = yN;
 		this.xDest = xD;
 		this.yDest = yD;
+		this.echelle = echelle2;
+		this.directionNao=1; 
+		/*
+		 * 0: vers le haut
+		 * 1: vers la droite
+		 * 2: vers le bas
+		 * 3: vers la gauche
+		 */
 		this.sortiesSecours = sortieSecours;
 		this.myMap = myMap;
 	}
@@ -81,7 +91,7 @@ public class Plan {
 	public void setyDest(int yDest) {
 		this.yDest = yDest;
 	}
-	
+
 	public int getValueAt(int x, int y){
 		return  planMatrice.get(y).get(x);
 	}
@@ -89,5 +99,20 @@ public class Plan {
 		planMatrice.get(y).set(x,value);
 	}
 
+	public int getDirectionNao() {
+		return directionNao;
+	}
+
+	public void setDirectionNao(int directionNao) {
+		this.directionNao = directionNao;
+	}
+
+	public Float getEchelle() {
+		return echelle;
+	}
+
+	public void setEchelle(Float echelle) {
+		this.echelle = echelle;
+	}
+
 }
- 
